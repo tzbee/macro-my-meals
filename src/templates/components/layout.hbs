@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="{{ htmlWebpackPlugin.files.chunks.main.css }}" />
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+<html>
+
+	<head>
+		<title>
+			{{htmlWebpackPlugin.options.common.title}}
+		</title>
+	</head>
+	<body>
+		<div id="layout-banner">
+			{{> ../components/banner}}
+		</div>
+		<div id="layout-content">
+			{{#> content}}
+			{{/content}}
+		</div>
+		<script src="{{ htmlWebpackPlugin.files.chunks.main.entry }}"></script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+// menu.scss
+
+.banner {
+	position: relative;
+	padding: 20px;
+	box-sizing: border-box;
+	height: 100%;
+	width: 50%;
+	margin: auto;
+	font-size: 1.5em;
+	border-bottom: solid 1px #dcdde1;
+
+	.banner-title-wrapper {
+		width: 500px;
+		height: 100%;
+
+		.banner-logo-wrapper {
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+
+		.banner-title {
+			font-size: 1.8em;
+			font-weight: bold;
+			font-family: 'Baloo', cursive;
+		}
+	}
+}
