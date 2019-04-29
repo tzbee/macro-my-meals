@@ -1,11 +1,13 @@
 .FoodItemList {
 	font-size: 0.8em;
+	width: 100%;
 
 	.FoodItem {
 		padding: 10px;
 		border-radius: 7px;
 		display: flex;
 		flex-flow: row;
+		align-items: center;
 		width: 100%;
 		box-sizing: border-box;
 

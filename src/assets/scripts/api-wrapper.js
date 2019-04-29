@@ -4,6 +4,11 @@ const listURL = `https://api.nal.usda.gov/ndb/list?&api_key=${API_KEY}`;
 const getReportURL = nbdID =>
 	`https://api.nal.usda.gov/ndb/reports?ndbno=${nbdID}&api_key=${API_KEY}`;
 
+const getSearchURL = q =>
+	`https://api.nal.usda.gov/ndb/search?q=${encodeURIComponent(
+		q
+	)}&api_key=${API_KEY}`;
+
 export const getFoodDataList = () => {
 	return fetch(listURL)
 		.then(res => res.json())
@@ -20,4 +25,15 @@ export const getFoodReport = id => {
 				nutrients: foodData.report.food.nutrients
 			};
 		});
+};
+
+export const searchFoodItems = term => {
+	return fetch(getSearchURL(term))
+		.then(res => res.json())
+		.then(foodData =>
+			foodData.list.item.map(({ ndbno, name }) => ({
+				id: ndbno,
+				name
+			}))
+		);
 };

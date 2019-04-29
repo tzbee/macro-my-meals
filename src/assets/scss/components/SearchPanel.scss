@@ -1,3 +1,16 @@
 .SearchPanel {
-	padding: 30px;
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+	align-content: center;
+	box-sizing: border-box;
+	background-color: #fff2cf;
+	.SearchPanel-header {
+		flex: 0 0 75px;
+	}
+
+	.SearchPanel-content {
+		flex: 1 1 auto;
+		overflow: auto;
+	}
 }

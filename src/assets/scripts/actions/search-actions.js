@@ -1,3 +1,4 @@
+import { foodListCache } from '../app';
 import { updateSuggestions, closeSuggestions } from './suggestions-actions.js';
 
 export const setSearchTerm = term => ({
@@ -22,4 +23,15 @@ export const setSearchFocus = isFocused => dispatch => {
 
 export const clearSearch = () => ({
 	type: 'CLEAR_SEARCH'
+});
+
+export const search = term => dispatch => {
+	foodListCache.search(term).then(results => {
+		dispatch(_setSearchResults(results));
+	});
+};
+
+const _setSearchResults = results => ({
+	type: 'SET_SEARCH_RESULTS',
+	results
 });

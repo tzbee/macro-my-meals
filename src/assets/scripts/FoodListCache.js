@@ -79,6 +79,10 @@ export default class FoodListCache {
 		);
 	}
 
+	search(term) {
+		return this.foodDataCache.search(term);
+	}
+
 	get() {
 		return Object.values(this.cache);
 	}

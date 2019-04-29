@@ -1,4 +1,8 @@
-import { getFoodDataList, getFoodReport } from './api-wrapper.js';
+import {
+	getFoodDataList,
+	getFoodReport,
+	searchFoodItems
+} from './api-wrapper.js';
 export default class FoodDataCache {
 	constructor() {
 		this.cache = {};
@@ -13,6 +17,11 @@ export default class FoodDataCache {
 			}, {});
 			return this.get();
 		});
+	}
+
+	//Async
+	search(term) {
+		return searchFoodItems(term);
 	}
 
 	get() {

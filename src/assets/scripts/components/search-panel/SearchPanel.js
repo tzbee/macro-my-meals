@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FoodItemInputContainer from '../food-item-input/FoodItemInputContainer';
+import SearchBarComponent from './SearchBarComponent';
+import SearchResultsComponent from './SearchResultsComponent';
 
 const SearchPanel = ({ className = '' }) => {
 	return (
 		<div className={`SearchPanel ${className}`}>
-			<FoodItemInputContainer />
+			<div className="SearchPanel-header">
+				<SearchBarComponent />
+			</div>
+			<div className="SearchPanel-content">
+				<SearchResultsComponent />
+			</div>
 		</div>
 	);
 };
