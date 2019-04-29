@@ -1,9 +1,13 @@
 .FoodItemList {
 	font-size: 0.8em;
-	width: 100%;
+
 	.FoodItem {
 		padding: 10px;
 		border-radius: 7px;
+		display: flex;
+		flex-flow: row;
+		width: 100%;
+		box-sizing: border-box;
 
 		.FoodItem-prop {
 			padding: 10px;
@@ -13,11 +17,13 @@
 			font-weight: bold;
 			color: #353b48;
 			font-size: 0.9em;
+			flex: 1 1 auto;
 		}
 		.FoodItem-caloriesPerItem {
 			font-size: 0.6em;
 		}
 		.FoodItem-count {
+			flex: 0 0 91px;
 			.Count {
 				padding: 2px 6px 6px 6px;
 				background-color: #7e7f82;
@@ -52,6 +58,7 @@
 			}
 		}
 		.FoodItem-remove {
+			flex: 0 0 70px;
 		}
 	}
 }

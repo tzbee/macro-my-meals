@@ -3,6 +3,7 @@
 	height: 100%;
 	display: flex;
 	flex-flow: row;
+	overflow: hidden;
 
 	.App-header {
 		position: relative;
@@ -31,5 +32,9 @@
 
 	.App-listPanel {
 		flex: 1 1 auto;
+	}
+
+	.App-totalPanel {
+		flex: 0 0 500px;
 	}
 }

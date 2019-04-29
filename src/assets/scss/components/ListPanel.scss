@@ -1,0 +1,17 @@
+.ListPanel {
+	padding: 30px;
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+
+	.ListPanel-content {
+		flex: 1 1 auto;
+		overflow: auto;
+	}
+
+	.ListPanel-footer {
+		flex: 0 0 50px;
+	}
+}

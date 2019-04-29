@@ -16,27 +16,21 @@ const FoodItem = ({ id, type, count, onRemoveClick, plus, minus }) => {
 
 	return (
 		<tr className="FoodItem">
-			<td className="FoodItem-prop">
-				<div className="FoodItem-name">{type.name}</div>
+			<td className="FoodItem-prop FoodItem-name">
+				{type.name}
 				<div className="FoodItem-caloriesPerItem">
 					{type.nutrients.find(n => n.name === 'Energy').value} kcal
 				</div>
 			</td>
-			<td className="FoodItem-prop">
-				<div className="FoodItem-count">
-					<Count
-						count={count}
-						plus={handlePlusCount}
-						minus={handleMinusCount}
-					/>
-				</div>
+			<td className="FoodItem-prop FoodItem-count">
+				<Count
+					count={count}
+					plus={handlePlusCount}
+					minus={handleMinusCount}
+				/>
 			</td>
-			<td className="FoodItem-prop">
-				<a
-					className="FoodItem-remove"
-					href="#"
-					onClick={handleRemoveClick}
-				>
+			<td className="FoodItem-prop FoodItem-remove">
+				<a className="" href="#" onClick={handleRemoveClick}>
 					Remove
 				</a>
 			</td>
