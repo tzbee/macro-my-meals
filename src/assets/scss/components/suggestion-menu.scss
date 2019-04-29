@@ -1,0 +1,32 @@
+.SuggestionMenu {
+	height: 300px;
+	overflow-y: auto;
+	position: absolute;
+	top: 100%;
+	box-sizing: border-box;
+	width: 400px;
+	z-index: 9999;
+	&.SuggestionMenu-active {
+		display: block;
+	}
+	&.SuggestionMenu-inactive {
+		display: none;
+	}
+
+	.SuggestionMenu-menu {
+		border: solid 1px #dcdde1;
+
+		background-color: #fefefe;
+
+		.SuggestionMenuItem {
+			&.selected {
+				background-color: #c23616;
+				color: #f5f6fa;
+			}
+			cursor: pointer;
+			padding: 10px;
+			font-size: 0.7em;
+			font-weight: bold;
+		}
+	}
+}

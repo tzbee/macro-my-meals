@@ -1,0 +1,35 @@
+.App {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: row;
+
+	.App-header {
+		position: relative;
+		flex: 0 0 70px;
+	}
+	.App-content {
+		position: relative;
+		overflow-y: auto;
+		background-color: #fefefe;
+		border-radius: 1px;
+		box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+		padding: 10px;
+		flex-grow: 1;
+	}
+	.App-footer {
+		position: relative;
+		box-sizing: border-box;
+		padding: 20px 10px 20px 0;
+		width: 100%;
+		flex: 0 0 70px;
+	}
+
+	.App-searchPanel {
+		flex: 0 0 500px;
+	}
+
+	.App-listPanel {
+		flex: 1 1 auto;
+	}
+}

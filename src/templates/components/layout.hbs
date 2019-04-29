@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="{{ htmlWebpackPlugin.files.chunks.main.css }}" />
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 <html>
-
 	<head>
+	<link rel="stylesheet" href="{{ htmlWebpackPlugin.files.chunks.main.css }}" />
 		<title>
 			{{htmlWebpackPlugin.options.common.title}}
 		</title>
@@ -16,6 +14,9 @@
 			{{#> content}}
 			{{/content}}
 		</div>
+		<div id="layout-footer">
+			{{> ../components/footer}}
+		</did>
 		<script src="{{ htmlWebpackPlugin.files.chunks.main.entry }}"></script>
 	</body>
 </html>

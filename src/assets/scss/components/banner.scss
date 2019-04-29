@@ -2,27 +2,29 @@
 
 .banner {
 	position: relative;
-	padding: 20px;
+	padding: 20px 20px 20px 30px;
 	box-sizing: border-box;
 	height: 100%;
-	width: 50%;
+	width: 100%;
 	margin: auto;
 	font-size: 1.5em;
 	border-bottom: solid 1px #dcdde1;
 
-	.banner-title-wrapper {
-		width: 500px;
-		height: 100%;
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
 
+	.banner-title-wrapper {
+		display: inline-block;
 		.banner-logo-wrapper {
 			display: inline-block;
-			width: 100px;
-			height: 100px;
+			height: 100%;
 			background-color: red;
 		}
 
 		.banner-title {
-			font-size: 1.8em;
+			font-size: 1.6em;
 			font-weight: bold;
 			font-family: 'Baloo', cursive;
 		}
