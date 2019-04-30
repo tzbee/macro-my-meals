@@ -22,6 +22,8 @@ export const getFoodReport = id => {
 		.then(res => res.json())
 		.then(foodData => {
 			return {
+				id,
+				name: foodData.report.food.name,
 				nutrients: foodData.report.food.nutrients
 			};
 		});

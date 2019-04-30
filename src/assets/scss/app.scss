@@ -1,5 +1,8 @@
 // app.scss
 
+// Color palette
+@import './components/colors';
+
 // Components
 @import './components/banner';
 @import './components/page-content';
@@ -19,8 +22,8 @@
 body {
 	padding: 0;
 	margin: 0;
-	color: #2f3640;
-	background-color: #fefefe;
+	color: $MATTE;
+	background-color: $LYNX_WHITE;
 	font-family: 'Noto Sans', sans-serif;
 	width: 100vw;
 	height: 100vh;
@@ -55,7 +58,7 @@ ul {
 }
 
 #layout-footer {
-	background-color: #353b48;
+	background-color: $MATTE;
 	box-sizing: border-box;
 	width: 100%;
 	padding: 20px;

@@ -35,3 +35,4 @@ store.dispatch(closeSuggestions());
 flc.load().then(() => {
 	store.dispatch(loadFoodList());
 });
+

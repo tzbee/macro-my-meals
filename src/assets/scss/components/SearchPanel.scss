@@ -4,7 +4,9 @@
 	flex-flow: column;
 	align-content: center;
 	box-sizing: border-box;
-	background-color: #fff2cf;
+	background-color: #353b48;
+	color: $LYNX_WHITE;
+
 	.SearchPanel-header {
 		flex: 0 0 75px;
 	}

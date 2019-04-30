@@ -30,11 +30,6 @@ export default class FoodDataCache {
 
 	// Async
 	getFoodData(id) {
-		return getFoodReport(id).then(foodData => {
-			this.cache[id] = this.cache[id] || {};
-
-			this.cache[id] = Object.assign({}, this.cache[id], foodData);
-			return this.cache[id];
-		});
+		return getFoodReport(id);
 	}
 }

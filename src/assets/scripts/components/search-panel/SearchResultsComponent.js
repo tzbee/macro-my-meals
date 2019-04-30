@@ -1,8 +1,11 @@
 import SearchResults from './SearchResults';
 import { connect } from 'react-redux';
+import { addFoodListItem } from '../../actions/food-item-list-actions';
 
 const mapDispatchToProps = dispatch => {
-	return {};
+	return {
+		onAddClick: foodItemID => dispatch(addFoodListItem(foodItemID))
+	};
 };
 
 const mapStateToProps = ({ searchResults }) => ({

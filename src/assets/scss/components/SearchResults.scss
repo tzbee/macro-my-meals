@@ -2,9 +2,20 @@
 	padding: 30px;
 
 	.SearchResult {
-		font-size: 0.6em;
 		padding: 15px 0 15px 0;
-		font-weight: bold;
 		border-top: solid 1px #bbb;
+		display: flex;
+		flex-flow: row;
+		color: $LYNX_WHITE;
+
+		.SearchResult-name {
+			font-weight: bold;
+			font-size: 0.6em;
+			flex: 1 1 auto;
+		}
+		.SearchResult-add {
+			flex: 0 0 50px;
+			text-align: center;
+		}
 	}
 }

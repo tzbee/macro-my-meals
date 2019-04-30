@@ -25,8 +25,9 @@ export default class FoodListCache {
 		return this.get();
 	}
 
+	// Async
 	load() {
-		return this.foodDataCache.load().then(() => this._load());
+		return Promise.resolve(this._load());
 	}
 
 	_createFoodItem(foodType) {

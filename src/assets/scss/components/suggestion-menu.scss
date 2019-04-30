@@ -15,9 +15,7 @@
 
 	.SuggestionMenu-menu {
 		border: solid 1px #dcdde1;
-
-		background-color: #fefefe;
-
+		background-color: $LYNX_WHITE;
 		.SuggestionMenuItem {
 			&.selected {
 				background-color: #c23616;
