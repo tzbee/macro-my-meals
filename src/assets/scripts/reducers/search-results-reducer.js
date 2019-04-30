@@ -1,5 +1,9 @@
 const defaultState = {
-	list: []
+	list: [
+		{
+			name: 'test'
+		}
+	]
 };
 
 const SearchResultsReducer = (state = defaultState, { type, results }) => {

@@ -30,11 +30,30 @@ const SearchResult = ({ className = '', result, onAddClick }) => {
 	return (
 		<li className={`SearchResult ${className}`}>
 			<div className="SearchResult-name">{result.name}</div>
-			<div className="SearchResult-add" onClick={handleAddClick}>
-				+
+			<div className="SearchResult-add">
+				<AddBtn onClick={handleAddClick} />
 			</div>
 		</li>
 	);
+};
+
+const AddBtn = ({ className = '', onClick }) => {
+	const handleClick = e => {
+		e.stopPropagation();
+		onClick();
+	};
+	return (
+		<button className={`AddBtn ${className}`} onClick={handleClick}>
+			Add +
+		</button>
+	);
+};
+
+AddBtn.displayName = 'AddBtn';
+
+AddBtn.propTypes = {
+	className: PropTypes.string,
+	onClick: PropTypes.func
 };
 
 SearchResult.displayName = 'SearchResult';

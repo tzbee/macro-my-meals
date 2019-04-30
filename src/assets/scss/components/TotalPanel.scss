@@ -1,0 +1,12 @@
+.TotalPanel {
+	font-size: 1em;
+	color: $MATTE;
+	.TotalPanel-header {
+		padding: 30px;
+		font-weight: bold;
+		border-bottom: solid 1px #ececec;
+	}
+	.TotalPanel-content {
+		padding: 30px;
+	}
+}

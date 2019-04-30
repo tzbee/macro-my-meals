@@ -1,0 +1,21 @@
+$BTN_COLOR: $WATERMELON;
+$BTN_HOVER_COLOR: $LYNX_WHITE;
+$BTN_BACKGROUND_COLOR: rgba(0, 0, 0, 0);
+
+.AddBtn {
+	width: 54px;
+	height: 27px;
+	border-radius: 3px;
+	background-color: $BTN_BACKGROUND_COLOR;
+	border: solid 2px $BTN_COLOR;
+	color: $BTN_COLOR;
+	font-weight: bold;
+	font-size: 12px;
+	cursor: pointer;
+	outline: none;
+
+	&:hover {
+		border: solid 2px $BTN_HOVER_COLOR;
+		color: $BTN_HOVER_COLOR;
+	}
+}

@@ -41,13 +41,13 @@ const FoodItem = ({ id, type, count, onRemoveClick, plus, minus }) => {
 const Count = ({ count, plus, minus }) => {
 	return (
 		<div className="Count">
-			<div className="Count-minus Count-prop">
+			<div className="Count-minus Count-prop Count-btn-wrp">
 				<button className="Count-button" onClick={minus}>
 					-
 				</button>
 			</div>
 			<div className="Count-value Count-prop">{count}</div>
-			<div className="Count-plus Count-prop ">
+			<div className="Count-plus Count-prop Count-btn-wrp">
 				<button className="Count-button" onClick={plus}>
 					+
 				</button>

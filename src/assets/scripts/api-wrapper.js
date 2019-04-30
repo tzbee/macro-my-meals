@@ -18,6 +18,7 @@ export const getFoodDataList = () => {
 };
 
 export const getFoodReport = id => {
+	if (!id) throw new Error('Cannot get food report: No id provided');
 	return fetch(getReportURL(id))
 		.then(res => res.json())
 		.then(foodData => {

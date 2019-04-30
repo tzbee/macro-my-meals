@@ -3,7 +3,7 @@ import React from 'react';
 // Redux containers
 import SearchPanel from '../search-panel/SearchPanel';
 import ListPanel from '../list-panel/ListPanel';
-import TotalCountContainer from '../total-count/TotalCountContainer';
+import TotalPanel from '../total-panel/TotalPanel';
 
 const App = () => {
 	return (
@@ -15,7 +15,7 @@ const App = () => {
 				<ListPanel />
 			</div>
 			<div className="App-totalPanel">
-				<TotalCountContainer />
+				<TotalPanel />
 			</div>
 		</div>
 	);
