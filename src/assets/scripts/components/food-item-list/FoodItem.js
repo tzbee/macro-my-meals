@@ -6,7 +6,7 @@ import QuantityInput from './QuantityInput';
 const FoodItem = ({
 	id,
 	type,
-	quantity = 0,
+	quantity = { value: 0, unit: 'g' },
 	onRemoveClick,
 	onQuantityChange
 }) => {
@@ -24,13 +24,17 @@ const FoodItem = ({
 			<td className="FoodItem-prop FoodItem-name">
 				{type.name}
 				<div className="FoodItem-caloriesPerItem">
-					{type.nutrients.find(n => n.name === 'Energy').value} kcal
+					{type.nutrients.find(n => n.name === 'Energy').valueMap[
+						'g'
+					] * 100}
+					kcal / 100g
 				</div>
 			</td>
 			<td className="FoodItem-prop FoodItem-count">
 				<QuantityInput
-					value={quantity}
 					onChange={handleQuantityChange}
+					unitOptions={Object.keys(type.nutrients[0].valueMap)}
+					{...quantity}
 				/>
 			</td>
 			<td className="FoodItem-prop FoodItem-remove">

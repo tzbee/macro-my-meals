@@ -1,7 +1,10 @@
 import uuid from 'uuid/v1';
 import FoodDataCache from './FoodDataCache';
 
-const DEFAULT_QUANTITY = 1;
+const DEFAULT_QUANTITY = {
+	value: 100,
+	unit: 'g'
+};
 
 export default class FoodListCache {
 	constructor() {

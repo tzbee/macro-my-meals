@@ -3,7 +3,7 @@ const _setTotal = total => ({
 	total
 });
 
-// Hardcoded nutrient type ids,
+// Hardcoded nutrient type IDs,
 // Taken from the food database api
 const DEFAULT_TOTAL_IDS = [
 	{ id: '203', name: 'Protein' },
@@ -32,25 +32,21 @@ export const updateTotal = () => (dispatch, getState) => {
 
 	debugger;
 
-	const total = items
-		.map(({ type: { nutrients }, quantity }) => {
-			return {
-				itemNutrients: nutrients.filter(
-					nutrient => nutrient.group === 'Proximates'
-				),
-				quantity
-			};
-		})
-		.reduce((totalNutrients, { itemNutrients, quantity }) => {
-			itemNutrients.forEach(itemNutrient => {
-				const itemNutrientID = itemNutrient['nutrient_id'];
+	const total = items.reduce(
+		//quantity in g
+		(
+			totalNutrients,
+			{ type: { nutrients }, quantity: { value, unit } }
+		) => {
+			nutrients.forEach(itemNutrient => {
+				const itemNutrientID = itemNutrient.id;
 
 				// nutrient value for 100g of the item
-				const itemTypeNutrientValue100g = itemNutrient.value;
+				const itemTypeNutrientValuePerUnit =
+					itemNutrient.valueMap[unit];
 
 				// nutrient value for {quantity} of the item
-				const itemNutrientValue =
-					(itemTypeNutrientValue100g * quantity) / 100;
+				const itemNutrientValue = itemTypeNutrientValuePerUnit * value;
 
 				const totalForNutrient = totalNutrients[itemNutrientID];
 				if (!totalForNutrient.unit)
@@ -61,7 +57,9 @@ export const updateTotal = () => (dispatch, getState) => {
 					parseInt(itemNutrientValue);
 			});
 			return totalNutrients;
-		}, getDefaultTotal());
+		},
+		getDefaultTotal()
+	);
 
 	dispatch(_setTotal(total));
 };

@@ -25,7 +25,30 @@ export const getFoodReport = id => {
 			return {
 				id,
 				name: foodData.report.food.name,
-				nutrients: foodData.report.food.nutrients
+				nutrients: translateNutrients(foodData.report.food.nutrients)
+			};
+		});
+};
+
+const translateNutrients = apiNutrients => {
+	return apiNutrients
+		.filter(nutrient => nutrient.group === 'Proximates')
+		.map(({ measures, name, nutrient_id, unit, value }) => {
+			const otherMeasures = measures.reduce((res, measure) => {
+				res[measure.label] = measure.value / measure.qty;
+				return res;
+			}, {});
+
+			const valueMap = {
+				g: value / 100,
+				...otherMeasures
+			};
+
+			return {
+				id: nutrient_id,
+				name,
+				unit,
+				valueMap
 			};
 		});
 };
