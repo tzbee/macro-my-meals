@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FoodItem = ({ id, type, count, onRemoveClick, plus, minus }) => {
+import QuantityInput from './QuantityInput';
+
+const FoodItem = ({
+	id,
+	type,
+	quantity = 0,
+	onRemoveClick,
+	onQuantityChange
+}) => {
 	const handleRemoveClick = e => {
 		e.stopPropagation();
 		onRemoveClick(id);
 	};
 
-	const handlePlusCount = () => {
-		plus(id);
-	};
-	const handleMinusCount = () => {
-		minus(id);
+	const handleQuantityChange = newQuantity => {
+		onQuantityChange(newQuantity, id);
 	};
 
 	return (
@@ -23,10 +28,9 @@ const FoodItem = ({ id, type, count, onRemoveClick, plus, minus }) => {
 				</div>
 			</td>
 			<td className="FoodItem-prop FoodItem-count">
-				<Count
-					count={count}
-					plus={handlePlusCount}
-					minus={handleMinusCount}
+				<QuantityInput
+					value={quantity}
+					onChange={handleQuantityChange}
 				/>
 			</td>
 			<td className="FoodItem-prop FoodItem-remove">
@@ -38,32 +42,6 @@ const FoodItem = ({ id, type, count, onRemoveClick, plus, minus }) => {
 	);
 };
 
-const Count = ({ count, plus, minus }) => {
-	return (
-		<div className="Count">
-			<div className="Count-minus Count-prop Count-btn-wrp">
-				<button className="Count-button" onClick={minus}>
-					-
-				</button>
-			</div>
-			<div className="Count-value Count-prop">{count}</div>
-			<div className="Count-plus Count-prop Count-btn-wrp">
-				<button className="Count-button" onClick={plus}>
-					+
-				</button>
-			</div>
-		</div>
-	);
-};
-
-Count.displayName = 'Count';
-
-Count.propTypes = {
-	count: PropTypes.number,
-	plus: PropTypes.func,
-	minus: PropTypes.func
-};
-
 FoodItem.displayName = 'FoodItem';
 
 FoodItem.propTypes = {
@@ -73,7 +51,9 @@ FoodItem.propTypes = {
 	id: PropTypes.string,
 	type: PropTypes.object,
 	plus: PropTypes.func,
-	minus: PropTypes.func
+	minus: PropTypes.func,
+	quantity: PropTypes.number,
+	onQuantityChange: PropTypes.func
 };
 
 export default FoodItem;

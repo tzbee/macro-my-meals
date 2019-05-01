@@ -1,6 +1,7 @@
 .SearchResults {
 	height: 100%;
 	padding: 0 30px 30px 30px;
+	box-sizing: border-box;
 
 	.SearchResults-results {
 		.SearchResult {
@@ -14,6 +15,8 @@
 				font-weight: bold;
 				font-size: 0.6em;
 				flex: 1 1 auto;
+				display: flex;
+				align-items: center;
 			}
 			.SearchResult-add {
 				flex: 0 0 85px;

@@ -1,7 +1,7 @@
 import uuid from 'uuid/v1';
 import FoodDataCache from './FoodDataCache';
 
-const DEFAULT_COUNT = 1;
+const DEFAULT_QUANTITY = 1;
 
 export default class FoodListCache {
 	constructor() {
@@ -34,7 +34,7 @@ export default class FoodListCache {
 		return {
 			id: uuid(),
 			type: foodType,
-			count: DEFAULT_COUNT
+			quantity: DEFAULT_QUANTITY
 		};
 	}
 
@@ -82,6 +82,18 @@ export default class FoodListCache {
 
 	search(term) {
 		return this.foodDataCache.search(term);
+	}
+
+	updateQuantity(quantity, foodItemID) {
+		const foodItem = this.cache[foodItemID];
+
+		if (foodItem) {
+			foodItem.quantity = quantity;
+		}
+
+		this._save();
+
+		return this.get();
 	}
 
 	get() {

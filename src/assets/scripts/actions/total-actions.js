@@ -30,28 +30,35 @@ export const updateTotal = () => (dispatch, getState) => {
 		foodItemList: { items }
 	} = getState();
 
+	debugger;
+
 	const total = items
-		.map(({ type: { nutrients }, count }) => {
-			return nutrients.filter(
-				nutrient => nutrient.group === 'Proximates'
-			);
+		.map(({ type: { nutrients }, quantity }) => {
+			return {
+				itemNutrients: nutrients.filter(
+					nutrient => nutrient.group === 'Proximates'
+				),
+				quantity
+			};
 		})
-		.reduce((totalNutrients, itemNutrients) => {
+		.reduce((totalNutrients, { itemNutrients, quantity }) => {
 			itemNutrients.forEach(itemNutrient => {
 				const itemNutrientID = itemNutrient['nutrient_id'];
+
+				// nutrient value for 100g of the item
+				const itemTypeNutrientValue100g = itemNutrient.value;
+
+				// nutrient value for {quantity} of the item
+				const itemNutrientValue =
+					(itemTypeNutrientValue100g * quantity) / 100;
+
 				const totalForNutrient = totalNutrients[itemNutrientID];
-				if (!totalForNutrient) {
-					totalNutrients[itemNutrientID] = {
-						id: itemNutrientID,
-						name: itemNutrient.name,
-						value: 0,
-						unit: itemNutrient.unit
-					};
-				}
+				if (!totalForNutrient.unit)
+					totalNutrients[itemNutrientID].unit = itemNutrient.unit;
 
 				totalNutrients[itemNutrientID].value =
 					totalNutrients[itemNutrientID].value +
-					parseInt(itemNutrient.value);
+					parseInt(itemNutrientValue);
 			});
 			return totalNutrients;
 		}, getDefaultTotal());

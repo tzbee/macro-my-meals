@@ -41,3 +41,9 @@ export const minusCount = foodItemID => dispatch => {
 	dispatch(_setFoodList(foodList));
 	dispatch(updateTotal());
 };
+
+export const updateQuantity = (newQuantity, foodItemID) => dispatch => {
+	const foodList = foodListCache.updateQuantity(newQuantity, foodItemID);
+	dispatch(_setFoodList(foodList));
+	dispatch(updateTotal());
+};

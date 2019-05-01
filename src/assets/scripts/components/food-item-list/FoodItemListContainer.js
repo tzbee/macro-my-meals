@@ -3,7 +3,8 @@ import FoodItemList from './FoodItemList';
 import {
 	removeFoodListItem,
 	plusCount,
-	minusCount
+	minusCount,
+	updateQuantity
 } from '../../actions/food-item-list-actions';
 
 import { updateTotal } from '../../actions/total-actions';
@@ -19,6 +20,9 @@ const mapDispatchToProps = dispatch => {
 		minus: foodItemID => {
 			dispatch(minusCount(foodItemID));
 			dispatch(updateTotal());
+		},
+		onQuantityChange: (newQuantity, foodItemID) => {
+			dispatch(updateQuantity(newQuantity, foodItemID));
 		}
 	};
 };
