@@ -21,7 +21,6 @@
 		display: flex;
 		flex-flow: row;
 		width: 100%;
-		height: 73px;
 		box-sizing: border-box;
 		align-items: center;
 
@@ -30,7 +29,7 @@
 		}
 
 		.FoodItem-name {
-			font-size: 0.9em;
+			font-size: 1.1em;
 			flex: 1 1 auto;
 			overflow: auto;
 			height: 100%;

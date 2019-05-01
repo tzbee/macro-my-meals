@@ -15,9 +15,9 @@ const EmptyFoodItemList = ({ className = '', onSearchClick }) => {
 				className="FoodItemList-goSearch"
 				onClick={handleSearchClick}
 			>
-				search bar
-			</a>
-			.
+				search
+			</a>{' '}
+			functionality.
 		</div>
 	);
 };
