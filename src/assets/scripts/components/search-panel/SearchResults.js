@@ -63,7 +63,7 @@ const AddBtn = ({ className = '', onClick }) => {
 		onClick();
 	};
 	return (
-		<button className={`AddBtn ${className}`} onClick={handleClick}>
+		<button className={`AddBtn mmm-btn${className}`} onClick={handleClick}>
 			Add +
 		</button>
 	);

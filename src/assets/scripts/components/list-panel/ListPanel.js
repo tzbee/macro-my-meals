@@ -6,7 +6,7 @@ import FoodItemListContainer from '../food-item-list/FoodItemListContainer';
 const ListPanel = ({ className = '' }) => {
 	return (
 		<div className={`ListPanel ${className}`}>
-			<div className="ListPanel-header">Your food items</div>
+			<div className="ListPanel-header">YOUR DAILY MEAL PLAN</div>
 			<div className="ListPanel-content">
 				<FoodItemListContainer />
 			</div>

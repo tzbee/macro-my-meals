@@ -39,8 +39,6 @@ export const updateTotal = () => (dispatch, getState) => {
 			nutrients.forEach(itemNutrient => {
 				const itemNutrientID = itemNutrient.id;
 
-				debugger;
-
 				// nutrient value for 100g of the item
 				const itemTypeNutrientValuePerUnit =
 					itemNutrient.valueMap[unit].value;

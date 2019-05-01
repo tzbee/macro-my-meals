@@ -39,7 +39,7 @@ const FoodItem = ({
 					kcal / 100g
 				</div>
 			</td>
-			<td className="FoodItem-prop FoodItem-count">
+			<td className="FoodItem-prop FoodItem-quantity">
 				<QuantityInput
 					onChange={handleQuantityChange}
 					unitOptions={{
@@ -50,7 +50,7 @@ const FoodItem = ({
 				/>
 			</td>
 			<td className="FoodItem-prop FoodItem-remove">
-				<a className="" href="#" onClick={handleRemoveClick}>
+				<a className="RemoveBtn" href="#" onClick={handleRemoveClick}>
 					Remove
 				</a>
 			</td>
@@ -68,7 +68,7 @@ FoodItem.propTypes = {
 	type: PropTypes.object,
 	plus: PropTypes.func,
 	minus: PropTypes.func,
-	quantity: PropTypes.number,
+	quantity: PropTypes.object,
 	onQuantityChange: PropTypes.func
 };
 

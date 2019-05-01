@@ -9,6 +9,8 @@ import {
 
 import { updateTotal } from '../../actions/total-actions';
 
+import { setSearchFocus } from '../../actions/search-actions';
+
 const mapDispatchToProps = dispatch => {
 	return {
 		onFoodItemRemove: foodItemID =>
@@ -23,6 +25,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		onQuantityChange: (newQuantity, foodItemID) => {
 			dispatch(updateQuantity(newQuantity, foodItemID));
+		},
+		onSearchClick: () => {
+			dispatch(setSearchFocus(true));
 		}
 	};
 };

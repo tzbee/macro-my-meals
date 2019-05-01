@@ -56,7 +56,7 @@ const QuantityValue = ({ className = '', value = 0, onChange }) => {
 			className={`QuantityValue ${className}`}
 			value={value}
 			onChange={handleChange}
-			placeholder="Food item quantity"
+			placeholder="Qty"
 		/>
 	);
 };

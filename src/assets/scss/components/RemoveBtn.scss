@@ -1,6 +1,8 @@
 $BTN_COLOR: $WATERMELON;
 
-.AddBtn {
+.RemoveBtn {
 	border-color: $BTN_COLOR;
 	color: $BTN_COLOR;
+	font-weight: bold;
+	font-size: 0.9em;
 }
