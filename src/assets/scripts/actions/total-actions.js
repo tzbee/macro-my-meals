@@ -30,8 +30,6 @@ export const updateTotal = () => (dispatch, getState) => {
 		foodItemList: { items }
 	} = getState();
 
-	debugger;
-
 	const total = items.reduce(
 		//quantity in g
 		(
@@ -41,9 +39,11 @@ export const updateTotal = () => (dispatch, getState) => {
 			nutrients.forEach(itemNutrient => {
 				const itemNutrientID = itemNutrient.id;
 
+				debugger;
+
 				// nutrient value for 100g of the item
 				const itemTypeNutrientValuePerUnit =
-					itemNutrient.valueMap[unit];
+					itemNutrient.valueMap[unit].value;
 
 				// nutrient value for {quantity} of the item
 				const itemNutrientValue = itemTypeNutrientValuePerUnit * value;

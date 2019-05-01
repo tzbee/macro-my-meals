@@ -19,21 +19,33 @@ const FoodItem = ({
 		onQuantityChange(newQuantity, id);
 	};
 
+	const valueMap = type.nutrients[0].valueMap;
+
+	const unitOptionsLabels = Object.keys(valueMap).map(unit => {
+		const {
+			eq: { value: eqValue, unit: eqUnit }
+		} = valueMap[unit];
+		const eq = eqValue && eqUnit ? ` (${eqValue} ${eqUnit})` : '';
+		return `${unit}${eq}`;
+	});
+
 	return (
 		<tr className="FoodItem">
 			<td className="FoodItem-prop FoodItem-name">
 				{type.name}
 				<div className="FoodItem-caloriesPerItem">
-					{type.nutrients.find(n => n.name === 'Energy').valueMap[
-						'g'
-					] * 100}
+					{type.nutrients.find(n => n.name === 'Energy').valueMap['g']
+						.value * 100}
 					kcal / 100g
 				</div>
 			</td>
 			<td className="FoodItem-prop FoodItem-count">
 				<QuantityInput
 					onChange={handleQuantityChange}
-					unitOptions={Object.keys(type.nutrients[0].valueMap)}
+					unitOptions={{
+						labels: unitOptionsLabels,
+						data: Object.keys(valueMap)
+					}}
 					{...quantity}
 				/>
 			</td>

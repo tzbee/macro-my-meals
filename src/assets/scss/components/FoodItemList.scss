@@ -26,7 +26,12 @@
 			font-size: 0.6em;
 		}
 		.FoodItem-count {
-			flex: 0 0 91px;
+			flex: 0 0 37%;
+			.QuantityInput {
+				.QuantityValue {
+					width: 40px;
+				}
+			}
 		}
 		.FoodItem-remove {
 			flex: 0 0 70px;

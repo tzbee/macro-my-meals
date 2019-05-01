@@ -5,7 +5,7 @@ const QuantityInput = ({
 	className = '',
 	value = 0,
 	unit = 'g',
-	unitOptions = [],
+	unitOptions = {},
 	onChange
 }) => {
 	const handleValueChange = newValue => {
@@ -35,7 +35,7 @@ QuantityInput.propTypes = {
 	value: PropTypes.number,
 	onChange: PropTypes.func,
 	unit: PropTypes.string,
-	unitOptions: PropTypes.array
+	unitOptions: PropTypes.object
 };
 
 const QuantityValue = ({ className = '', value = 0, onChange }) => {
@@ -71,7 +71,7 @@ QuantityValue.propTypes = {
 
 const QuantityUnit = ({
 	className = '',
-	unitOptions = [],
+	unitOptions = {},
 	selectedUnit,
 	onChange
 }) => {
@@ -84,13 +84,13 @@ const QuantityUnit = ({
 			onChange={handleChange}
 			value={selectedUnit}
 		>
-			{unitOptions.map(unitOption => (
+			{unitOptions.data.map((unitOption, i) => (
 				<option
 					key={'uo-' + unitOption}
 					className="QuantityUnit-option"
 					value={unitOption}
 				>
-					{unitOption}
+					{unitOptions.labels[i]}
 				</option>
 			))}
 		</select>
@@ -101,7 +101,7 @@ QuantityUnit.displayName = 'QuantityUnit';
 
 QuantityUnit.propTypes = {
 	className: PropTypes.string,
-	unitOptions: PropTypes.array,
+	unitOptions: PropTypes.object,
 	selectedUnit: PropTypes.string,
 	onChange: PropTypes.func
 };

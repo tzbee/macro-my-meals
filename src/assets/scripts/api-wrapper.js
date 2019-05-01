@@ -35,12 +35,15 @@ const translateNutrients = apiNutrients => {
 		.filter(nutrient => nutrient.group === 'Proximates')
 		.map(({ measures, name, nutrient_id, unit, value }) => {
 			const otherMeasures = measures.reduce((res, measure) => {
-				res[measure.label] = measure.value / measure.qty;
+				res[measure.label] = {
+					value: measure.value / measure.qty,
+					eq: { value: measure.eqv, unit: measure.eunit }
+				};
 				return res;
 			}, {});
 
 			const valueMap = {
-				g: value / 100,
+				g: { value: value / 100, eq: {} },
 				...otherMeasures
 			};
 
