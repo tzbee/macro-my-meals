@@ -1,6 +1,4 @@
-const defaultState = {
-	calories: 0
-};
+const defaultState = {};
 
 const totalReducer = (state = defaultState, { type, total }) => {
 	switch (type) {

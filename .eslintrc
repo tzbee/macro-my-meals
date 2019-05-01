@@ -17,7 +17,7 @@
     "plugins": ["import", "node", "promise", "standard", "react"],
 
     "globals": {
-
+        "fetch":true,
         "document": false,
         "navigator": false,
         "window": false,

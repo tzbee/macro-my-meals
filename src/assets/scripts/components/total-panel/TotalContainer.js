@@ -1,13 +1,13 @@
-import Total from './Total';
+import TotalDetails from './TotalDetails';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => {
 	return {};
 };
 
-const mapStateToProps = ({ total }) => ({ count: total.calories });
+const mapStateToProps = ({ total }) => ({ total });
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Total);
+)(TotalDetails);

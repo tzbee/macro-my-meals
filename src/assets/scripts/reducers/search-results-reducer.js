@@ -1,18 +1,21 @@
 const defaultState = {
-	list: [
-		{
-			name: 'test'
-		}
-	]
+	loading: false,
+	list: []
 };
 
 const SearchResultsReducer = (state = defaultState, { type, results }) => {
 	switch (type) {
 		case 'SET_SEARCH_RESULTS':
 			return {
-				list: results.slice()
+				loading: false,
+				list: results && results.slice()
 			};
 
+		case 'SET_LOADING':
+			return {
+				loading: true,
+				list: []
+			};
 		default:
 			return state;
 	}

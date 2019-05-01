@@ -26,6 +26,7 @@ export const clearSearch = () => ({
 });
 
 export const search = term => dispatch => {
+	dispatch(_setLoading());
 	foodListCache.search(term).then(results => {
 		dispatch(_setSearchResults(results));
 	});
@@ -34,4 +35,8 @@ export const search = term => dispatch => {
 const _setSearchResults = results => ({
 	type: 'SET_SEARCH_RESULTS',
 	results
+});
+
+export const _setLoading = () => ({
+	type: 'SET_LOADING'
 });

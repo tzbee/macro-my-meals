@@ -1,21 +1,43 @@
 .SearchResults {
-	padding: 30px;
+	height: 100%;
+	padding: 0 30px 30px 30px;
 
-	.SearchResult {
+	.SearchResults-results {
+		.SearchResult {
+			padding: 15px 0 15px 0;
+			border-top: solid 1px #bbb;
+			display: flex;
+			flex-flow: row;
+			color: $LYNX_WHITE;
+
+			.SearchResult-name {
+				font-weight: bold;
+				font-size: 0.6em;
+				flex: 1 1 auto;
+			}
+			.SearchResult-add {
+				flex: 0 0 85px;
+				text-align: center;
+			}
+		}
+	}
+
+	.SearchResults-loading {
 		padding: 15px 0 15px 0;
-		border-top: solid 1px #bbb;
+		height: 100%;
 		display: flex;
-		flex-flow: row;
-		color: $LYNX_WHITE;
+		align-items: center;
+		justify-content: center;
 
-		.SearchResult-name {
-			font-weight: bold;
-			font-size: 0.6em;
-			flex: 1 1 auto;
+		.Loader {
+			font-size: 1.6em;
 		}
-		.SearchResult-add {
-			flex: 0 0 85px;
-			text-align: center;
-		}
+	}
+
+	.SearchResults-noResults {
+		padding: 15px 0 15px 0;
+		font-weight: bold;
+		color: $WATERMELON;
+		font-size: 0.8em;
 	}
 }

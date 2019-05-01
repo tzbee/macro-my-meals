@@ -1,17 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchResults = ({ className = '', results = [], onAddClick }) => {
+import Loader from '../loader/Loader';
+
+const SearchResults = ({
+	className = '',
+	results = [],
+	loading = false,
+	onAddClick
+}) => {
 	return (
-		<ul className={`SearchResults ${className}`}>
-			{results.map(result => (
-				<SearchResult
-					key={'sr' + result.id}
-					result={result}
-					onAddClick={onAddClick}
-				/>
-			))}
-		</ul>
+		<div className="SearchResults">
+			{loading ? (
+				<div className="SearchResults-loading">
+					<Loader />
+				</div>
+			) : results === null ? (
+				<div className="SearchResults-noResults">
+					No results found for this query
+				</div>
+			) : (
+				<ul className={`SearchResults-results ${className}`}>
+					{results.map(result => (
+						<SearchResult
+							key={'sr' + result.id}
+							result={result}
+							onAddClick={onAddClick}
+						/>
+					))}
+				</ul>
+			)}
+		</div>
 	);
 };
 
@@ -20,7 +39,8 @@ SearchResults.displayName = 'SearchResults';
 SearchResults.propTypes = {
 	className: PropTypes.string,
 	results: PropTypes.array,
-	onAddClick: PropTypes.func
+	onAddClick: PropTypes.func,
+	loading: PropTypes.bool
 };
 
 const SearchResult = ({ className = '', result, onAddClick }) => {
