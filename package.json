@@ -8,7 +8,7 @@
     "prod": "webpack --config webpack.prod.js",
     "start": "http-server ./public",
     "clean": "rm -rf ./node_modules ./public && rm ./package-lock.json",
-    "build": "npm install && npm run dev"
+    "build": "npm run prod"
   },
   "author": "tzbee",
   "license": "ISC",
