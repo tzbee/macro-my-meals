@@ -108,6 +108,7 @@ export default class FoodListCache {
 		return Object.values(this.cache);
 	}
 
+	// async
 	getFoodData() {
 		return this.foodDataCache.get();
 	}

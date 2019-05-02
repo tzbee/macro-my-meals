@@ -5,6 +5,7 @@ export default class FoodDataCache {
 		this.hitMap = {};
 		this.storage = window.localStorage;
 		this._loadHits();
+		this._loadFoodData();
 	}
 
 	//Async
@@ -16,13 +17,28 @@ export default class FoodDataCache {
 	getFoodData(id) {
 		if (!this.cache[id]) {
 			console.log(`Food data for item ${id} not found in cache`);
-			this.cache[id] = getFoodReport(id);
+			return getFoodReport(id).then(data => {
+				this.cache[id] = data;
+				this._addHitCount(id);
+				this._saveFoodData();
+				return this.cache[id];
+			});
 		} else {
 			console.log(`Food data for item ${id} found in cache`);
 		}
 
 		this._addHitCount(id);
-		return this.cache[id];
+		return Promise.resolve(this.cache[id]);
+	}
+
+	_saveFoodData() {
+		this.storage.setItem('foodData', JSON.stringify(this.cache));
+		return this.cache;
+	}
+
+	_loadFoodData() {
+		this.cache = JSON.parse(this.storage.getItem('foodData') || '{}');
+		return this.cache;
 	}
 
 	_loadHits() {

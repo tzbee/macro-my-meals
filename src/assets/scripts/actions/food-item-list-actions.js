@@ -30,18 +30,6 @@ export const loadFoodList = () => dispatch => {
 	dispatch(updateTotal());
 };
 
-export const plusCount = foodItemID => dispatch => {
-	const foodList = foodListCache.plusCount(foodItemID);
-	dispatch(_setFoodList(foodList));
-	dispatch(updateTotal());
-};
-
-export const minusCount = foodItemID => dispatch => {
-	const foodList = foodListCache.minusCount(foodItemID);
-	dispatch(_setFoodList(foodList));
-	dispatch(updateTotal());
-};
-
 export const updateQuantity = (newQuantity, foodItemID) => dispatch => {
 	const foodList = foodListCache.updateQuantity(newQuantity, foodItemID);
 	dispatch(_setFoodList(foodList));
