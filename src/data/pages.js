@@ -1,6 +1,6 @@
 // pages.js
 
-const APP_TITLE = 'Macro my meals';
+const APP_TITLE = 'Nutricount';
 
 const common = {
 	title: APP_TITLE,
