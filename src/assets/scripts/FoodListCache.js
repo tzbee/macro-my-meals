@@ -73,18 +73,23 @@ export default class FoodListCache {
 		return this.get();
 	}
 
-	plusCount(foodItemID) {
-		return this._edit(foodItemID, 'count', count => count + 1);
-	}
+	// do additional processing on the results like extra relevance sorting
+	_processSearchResults(results) {
+		return (
+			results &&
+			results.sort(({ id: r1ID }, { id: r2ID }) => {
+				const r1RelevanceValue = this.foodDataCache.getHitCount(r1ID);
+				const r2RelevanceValue = this.foodDataCache.getHitCount(r2ID);
 
-	minusCount(foodItemID) {
-		return this._edit(foodItemID, 'count', count =>
-			count > 0 ? count - 1 : count
+				return r2RelevanceValue - r1RelevanceValue;
+			})
 		);
 	}
 
 	search(term) {
-		return this.foodDataCache.search(term);
+		return this.foodDataCache
+			.search(term)
+			.then(results => this._processSearchResults(results));
 	}
 
 	updateQuantity(quantity, foodItemID) {
