@@ -26,11 +26,12 @@
 
 		.FoodItem-prop {
 			padding: 10px;
+			box-sizing: border-box;
 		}
 
 		.FoodItem-name {
 			font-size: 1em;
-			flex: 1 1 auto;
+			flex: 0 0 40%;
 			overflow: auto;
 			height: 100%;
 			display: flex;
@@ -42,7 +43,7 @@
 			color: $CHAIN_GANG_GREY;
 		}
 		.FoodItem-quantity {
-			flex: 0 0 11%;
+			flex: 1 1 auto;
 
 			.QuantityInput {
 				display: flex;
@@ -67,7 +68,7 @@
 			}
 		}
 		.FoodItem-remove {
-			flex: 0 0 28%;
+			flex: 0 0 10%;
 		}
 	}
 }
