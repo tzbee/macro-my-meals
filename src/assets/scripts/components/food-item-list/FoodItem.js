@@ -29,14 +29,16 @@ const FoodItem = ({
 		return `${unit}${eq}`;
 	});
 
+	const caloriesPer100g = Math.floor(
+		type.nutrients.find(n => n.name === 'Energy').valueMap['g'].value * 100
+	);
+
 	return (
 		<tr className="FoodItem">
 			<td className="FoodItem-prop FoodItem-name">
 				{type.name}
 				<div className="FoodItem-caloriesPerItem">
-					{type.nutrients.find(n => n.name === 'Energy').valueMap['g']
-						.value * 100}
-					kcal / 100g
+					{caloriesPer100g} kcal / 100g
 				</div>
 			</td>
 			<td className="FoodItem-prop FoodItem-quantity">
