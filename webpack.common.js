@@ -38,7 +38,12 @@ module.exports = {
 					template: `./src/templates/pages/${id}.hbs`,
 					filename: `${id}.html`,
 					minify: {
-						collapseWhitespace: true
+						collapseWhitespace: true,
+						removeComments: true,
+						removeRedundantAttributes: true,
+						removeScriptTypeAttributes: true,
+						removeStyleLinkTypeAttributes: true,
+						useShortDoctype: true
 					},
 					...data
 				})
