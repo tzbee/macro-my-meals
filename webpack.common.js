@@ -24,12 +24,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				use: [
-					'style-loader',
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'sass-loader'
-				]
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
 			}
 		]
 	},
@@ -42,6 +37,9 @@ module.exports = {
 					hash: true,
 					template: `./src/templates/pages/${id}.hbs`,
 					filename: `${id}.html`,
+					minify: {
+						collapseWhitespace: true
+					},
 					...data
 				})
 		)
