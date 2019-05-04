@@ -5,7 +5,7 @@ import Loader from '../loader/Loader';
 
 const SearchResults = ({
 	className = '',
-	results = [],
+	results = {},
 	loading = false,
 	onAddClick
 }) => {
@@ -15,13 +15,17 @@ const SearchResults = ({
 				<div className="SearchResults-loading">
 					<Loader />
 				</div>
-			) : results === null ? (
+			) : results.err ? (
+				<div className="SearchResults-err">
+					An error occured while searching: {results.err.message}
+				</div>
+			) : results.data === null ? (
 				<div className="SearchResults-noResults">
 					No results found for this query
 				</div>
 			) : (
 				<ul className={`SearchResults-results ${className}`}>
-					{results.map(result => (
+					{results.data.map(result => (
 						<SearchResult
 							key={'sr' + result.id}
 							result={result}
@@ -38,7 +42,7 @@ SearchResults.displayName = 'SearchResults';
 
 SearchResults.propTypes = {
 	className: PropTypes.string,
-	results: PropTypes.array,
+	results: PropTypes.object,
 	onAddClick: PropTypes.func,
 	loading: PropTypes.bool
 };

@@ -16,9 +16,22 @@ export const clearSearch = () => ({
 
 export const search = term => dispatch => {
 	dispatch(_setLoading());
-	foodListCache.search(term).then(results => {
-		dispatch(_setSearchResults(results));
-	});
+	foodListCache
+		.search(term)
+		.then(results => {
+			dispatch(
+				_setSearchResults({
+					data: results
+				})
+			);
+		})
+		.catch(err => {
+			dispatch(
+				_setSearchResults({
+					err: { message: err.message }
+				})
+			);
+		});
 };
 
 const _setSearchResults = results => ({

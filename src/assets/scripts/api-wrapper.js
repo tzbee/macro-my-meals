@@ -1,22 +1,24 @@
-import $ from 'jquery';
-
-const xhrFetch = url => {
-	return new Promise(resolve => {
-		$.getJSON(url, function(data) {
-			resolve(data);
-		});
+const fetchJSON = url => {
+	return fetch(url).then(res => {
+		if (res.status !== 200) {
+			throw new Error(
+				`Could not fetch ${url}: status: ${res.statusText}`
+			);
+		} else {
+			return res.json();
+		}
 	});
 };
 
 export const getFoodDataList = () => {
-	return xhrFetch('api/');
+	return fetchJSON('api/');
 };
 
 export const getFoodReport = id => {
 	if (!id) throw new Error('Cannot get food report: No id provided');
-	return xhrFetch(`api/report/${id}`);
+	return fetchJSON(`api/report/${id}`);
 };
 
 export const searchFoodItems = term => {
-	return xhrFetch(`api/search/?q=${term}`);
+	return fetchJSON(`api/search/?q=${term}`);
 };

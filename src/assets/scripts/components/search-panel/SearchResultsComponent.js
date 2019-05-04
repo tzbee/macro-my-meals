@@ -10,7 +10,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = ({ searchResults }) => ({
 	loading: searchResults.loading,
-	results: searchResults.list
+	results: searchResults.results
 });
 
 export default connect(

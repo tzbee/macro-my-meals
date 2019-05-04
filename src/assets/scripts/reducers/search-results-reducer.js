@@ -1,6 +1,9 @@
 const defaultState = {
 	loading: false,
-	list: []
+	results: {
+		err: false,
+		data: []
+	}
 };
 
 const SearchResultsReducer = (state = defaultState, { type, results }) => {
@@ -8,7 +11,7 @@ const SearchResultsReducer = (state = defaultState, { type, results }) => {
 		case 'SET_SEARCH_RESULTS':
 			return {
 				loading: false,
-				list: results && results.slice()
+				results: results
 			};
 
 		case 'SET_LOADING':

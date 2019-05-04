@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --config webpack.dev.js --open",
     "dev-server": "npm run build-dev && node server.js",
     "prod": "webpack --config webpack.prod.js",
-    "start": "http-server ./public",
+    "start": "npm run prod && node server.js",
     "clean": "rm -rf ./node_modules ./public && rm ./package-lock.json",
     "build": "npm run prod",
     "build-dev": "webpack --config webpack.dev.js"

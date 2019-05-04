@@ -37,7 +37,8 @@
 		}
 	}
 
-	.SearchResults-noResults {
+	.SearchResults-noResults,
+	.SearchResults-err {
 		padding: 15px 0 15px 0;
 		font-weight: bold;
 		color: $WATERMELON;
