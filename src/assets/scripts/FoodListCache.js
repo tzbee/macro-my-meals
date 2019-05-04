@@ -89,9 +89,16 @@ export default class FoodListCache {
 					const r1TermIndex = r1Name.indexOf(searchTerm);
 					const r2TermIndex = r2Name.indexOf(searchTerm);
 
+					const r1TermIndexRelevance =
+						r1TermIndex === -1 ? 50 : r1TermIndex;
+					const r2TermIndexRelevance =
+						r2TermIndex === -1 ? 50 : r2TermIndex;
+
 					// The highest the relevance values, the more priority the result get
-					const r1RelevanceValue = r1HitCount * 2 - r1TermIndex;
-					const r2RelevanceValue = r2HitCount * 2 - r2TermIndex;
+					const r1RelevanceValue =
+						r1HitCount * 50 - r1TermIndexRelevance;
+					const r2RelevanceValue =
+						r2HitCount * 50 - r2TermIndexRelevance;
 
 					return r2RelevanceValue - r1RelevanceValue;
 				}
