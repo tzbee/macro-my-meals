@@ -14,11 +14,11 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, 'public'),
     writeToDisk: true
   },
-
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'assets/css/style.css'
     }),
     ...common.plugins
-  ]
+  ],
+  watch: true
 });

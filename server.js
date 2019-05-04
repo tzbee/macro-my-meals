@@ -7,6 +7,25 @@ const apiWrapper = require('./api-wrapper');
 
 const apiRouter = express.Router();
 
+if (app.get('env') == 'development') {
+	var browserSync = require('browser-sync');
+	var config = {
+		files: [
+			'server.js',
+			'api-wrapper.js',
+			'public/**/*.{js,css}',
+			'src/**/*.js',
+			'src/**/*.scss'
+		],
+		logLevel: 'debug',
+		logSnippet: false,
+		reloadDelay: 1000,
+		reloadOnRestart: true
+	};
+	var bs = browserSync(config);
+	app.use(require('connect-browser-sync')(bs));
+}
+
 apiRouter.use('/search', (req, res) => {
 	apiWrapper
 		.searchFoodItems(req.query.q)
@@ -44,4 +63,4 @@ app.use('/api', apiRouter);
 
 app.use('/', express.static('public'));
 
-app.listen(port, () => `Server started on port ${port}`);
+app.listen(port, () => console.log(`Server started on port ${port}`));
