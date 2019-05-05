@@ -1,5 +1,5 @@
 import { updateTotal } from './total-actions';
-import { clearSearch, setSearchFocus } from './search-actions';
+import { setSearchFocus } from './search-actions';
 
 import { foodListCache } from '../app';
 
@@ -17,7 +17,6 @@ export const removeFoodListItem = foodItemID => dispatch => {
 export const addFoodListItem = foodItemTypeID => dispatch => {
 	foodListCache.add(foodItemTypeID).then(foodList => {
 		dispatch(_setFoodList(foodList));
-		dispatch(clearSearch());
 		dispatch(setSearchFocus(false));
 		dispatch(updateTotal());
 	});
@@ -26,7 +25,6 @@ export const addFoodListItem = foodItemTypeID => dispatch => {
 export const loadFoodList = () => dispatch => {
 	const foodList = foodListCache.get();
 	dispatch(_setFoodList(foodList));
-	dispatch(clearSearch());
 	dispatch(updateTotal());
 };
 
