@@ -42,6 +42,9 @@ export class SearchBar extends Component {
 		const handleOnBlur = () => {
 			onFocus(false);
 		};
+		const handleSearchBtnClick = () => {
+			onSubmit(value);
+		};
 		return (
 			<form className={`SearchBar ${className}`} onSubmit={handleSubmit}>
 				<input
@@ -53,6 +56,12 @@ export class SearchBar extends Component {
 					onFocus={handleOnFocus}
 					onBlur={handleOnBlur}
 				/>
+				<button
+					className="SearchBar-btn"
+					onClick={handleSearchBtnClick}
+				>
+					<span className="fa fa-search" />
+				</button>
 			</form>
 		);
 	}

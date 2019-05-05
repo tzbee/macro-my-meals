@@ -1,14 +1,38 @@
 .SearchBar {
 	padding: 30px;
+	display: flex;
+	flex-flow: row;
+	overflow: hidden;
 
 	.SearchBar-search {
-		width: 100%;
+		width: 87%;
 		height: 33px;
 		font-size: 0.8em;
-		padding: 20px 20px 20px 10px;
+		padding: 20px 20px 20px 13px;
 		box-sizing: border-box;
 		border: 1px solid $ELECTROMAGNETIC;
 		background-color: $ELECTROMAGNETIC;
 		color: $LYNX_WHITE;
+		border-radius: 6px;
+		outline: none;
+	}
+
+	.SearchBar-btn {
+		flex: 0 0 40px;
+		color: #70756e;
+		background-color: $ELECTROMAGNETIC;
+		border: #657173;
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+		cursor: pointer;
+		outline: none;
+		font-size: 0.7em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			color: $LYNX_WHITE;
+		}
 	}
 }
