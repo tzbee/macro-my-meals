@@ -18,6 +18,7 @@ import App from './components/app/App';
 import FoodListCache from './FoodListCache';
 
 import { setMobile } from './actions/misc-actions';
+import { setFolded } from './actions/search-actions';
 
 const flc = new FoodListCache();
 export const foodListCache = flc;
@@ -43,7 +44,7 @@ const isMobileEnv = () => {
 
 const updateMobileEnv = () =>
 	isMobileEnv()
-		? store.dispatch(setMobile(true))
+		? store.dispatch(setMobile(true)) & store.dispatch(setFolded(true))
 		: store.dispatch(setMobile(false));
 
 window.onresize = updateMobileEnv;
