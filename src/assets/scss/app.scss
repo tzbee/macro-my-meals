@@ -3,6 +3,9 @@
 // Color palette
 @import './components/colors';
 
+// Fonts
+@import './components/fonts.scss';
+
 // Components
 @import './components/banner';
 @import './components/page-content';
@@ -18,10 +21,6 @@
 @import './components/AddBtn';
 @import './components/RemoveBtn';
 @import './components/mmm-btn';
-
-// Fonts todo download locally
-@import url('https://fonts.googleapis.com/css?family=Baloo');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 
 body {
 	padding: 0;
