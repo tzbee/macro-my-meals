@@ -9,5 +9,6 @@ export default (state = {}, action) => ({
 	searchResults: searchResultsReducer(state.searchResults, action),
 	suggestions: suggestionsReducer(state.suggestions, action),
 	foodItemList: foodItemListReducer(state.foodItemList, action),
-	total: totalReducer(state.total, action)
+	total: totalReducer(state.total, action),
+	mobile: true
 });

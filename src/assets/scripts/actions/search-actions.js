@@ -42,3 +42,8 @@ const _setSearchResults = results => ({
 export const _setLoading = () => ({
 	type: 'SET_LOADING'
 });
+
+export const setFolded = folded => ({
+	type: 'SET_FOLDED',
+	folded
+});

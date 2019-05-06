@@ -26,7 +26,9 @@ export class SearchBar extends Component {
 			value,
 			onFocus,
 			onChange,
-			onSubmit
+			onSubmit,
+			foldable,
+			onFoldClick
 		} = this.props;
 
 		const handleChange = e => {
@@ -45,6 +47,10 @@ export class SearchBar extends Component {
 		const handleSearchBtnClick = () => {
 			onSubmit(value);
 		};
+
+		const handleFoldClick = () => {
+			onFoldClick();
+		};
 		return (
 			<form className={`SearchBar ${className}`} onSubmit={handleSubmit}>
 				<input
@@ -62,6 +68,11 @@ export class SearchBar extends Component {
 				>
 					<span className="fa fa-search" />
 				</button>
+				{foldable && (
+					<a className="SearchBar-fold" onClick={handleFoldClick}>
+						Fold
+					</a>
+				)}
 			</form>
 		);
 	}
@@ -75,7 +86,9 @@ SearchBar.propTypes = {
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func,
 	isFocused: PropTypes.bool,
-	onFocus: PropTypes.func
+	onFocus: PropTypes.func,
+	onFoldClick: PropTypes.func,
+	foldable: PropTypes.book
 };
 
 export default SearchBar;

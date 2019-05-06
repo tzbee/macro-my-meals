@@ -2,11 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import FoodItemListContainer from '../food-item-list/FoodItemListContainer';
+import { setFolded } from '../../actions/search-actions';
 
-const ListPanel = ({ className = '' }) => {
+const ListPanel = ({
+	className = '',
+	searchBtnActive = false,
+	onSearchClick
+}) => {
+	const handleSearchClick = () => {
+		onSearchClick();
+	};
 	return (
 		<div className={`ListPanel ${className}`}>
-			<div className="ListPanel-header">Your Daily Meal Plan</div>
+			<div className="ListPanel-header">
+				{searchBtnActive && (
+					<a className="ListPanel-search" onClick={handleSearchClick}>
+						Search
+					</a>
+				)}
+				Your Daily Meal Plan
+			</div>
 			<div className="ListPanel-content">
 				<FoodItemListContainer />
 			</div>
@@ -17,7 +32,22 @@ const ListPanel = ({ className = '' }) => {
 ListPanel.displayName = 'ListPanel';
 
 ListPanel.propTypes = {
-	className: PropTypes.string
+	className: PropTypes.string,
+	searchBtnActive: PropTypes.bool,
+	onSearchClick: PropTypes.func
 };
 
-export default ListPanel;
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = dispatch => {
+	return { onSearchClick: () => dispatch(setFolded(false)) };
+};
+
+const mapStateToProps = ({ mobile }) => ({
+	searchBtnActive: mobile
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(ListPanel);
