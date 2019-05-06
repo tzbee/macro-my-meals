@@ -4,6 +4,8 @@
 	display: grid;
 	overflow: hidden;
 	font-size: 1.3em;
+	grid-template-rows: 4em 1fr 14em;
+	grid-template-columns: 15em auto;
 
 	.App-panel {
 		overflow: auto;
@@ -14,46 +16,25 @@
 		grid-row: 1 / 2;
 		grid-column: 1 / 4;
 	}
-}
-
-// Big-ish screens
-@media all and (min-width: 90em) {
-	.App {
-		grid-template-rows: 100px 1fr;
-		grid-template-columns: 350px auto 400px;
-	}
-	.App-totalPanel {
-		grid-row: 2 / 3;
-		grid-column: 3 / 4;
-	}
-	.App-listPanel {
-		grid-row: 2 / 3;
-		grid-column: 2 / 3;
-	}
-	.App-searchPanel {
-		grid-row: 2 / 3;
-		grid-column: 1 / 1;
-	}
-}
-
-// Small-ish screens
-@media all and (min-width: 20em) and (max-width: 90em) {
-	.App {
-		grid-template-rows: 100px 1fr 40%;
-		grid-template-columns: 100px auto 300px;
-	}
-
 	.App-totalPanel {
 		grid-row: 3 / 4;
 		grid-column: 2 / 4;
 		font-size: 0.8em;
 	}
-	.App-listPanel {
-		grid-row: 2 / 3;
-		grid-column: 2 / 4;
-	}
 	.App-searchPanel {
 		grid-row: 2 / 4;
 		grid-column: 1 / 1;
 	}
+	.App-listPanel {
+		grid-row: 2 / 3;
+		grid-column: 2 / 4;
+	}
+}
+
+// Big-ish screens
+@media all and (min-width: 90em) {
+}
+
+// Small-ish screens
+@media all and (min-width: 20em) and (max-width: 90em) {
 }

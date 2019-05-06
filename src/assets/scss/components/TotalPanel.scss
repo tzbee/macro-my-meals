@@ -1,27 +1,39 @@
 .TotalPanel {
 	color: $MATTE;
 	width: 100%;
-	padding: 30px;
 	box-sizing: border-box;
+	font-size: 1.1em;
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	justify-content: center;
 
 	.TotalPanel-Total {
-		padding: 15px;
+		background-color: #eee;
 		box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+		width: 100%;
+		font-weight: bold;
+		box-shadow: none;
+		box-sizing: border-box;
 		.TotalPanel-header {
+			padding: 15px;
 			padding-bottom: 10px;
-			font-size: 0.9em;
+			font-size: 1em;
 			font-weight: bold;
 			border-bottom: solid 1px #ececec;
+			background-color: #eee;
+			border: solid 1px #e8e2e2;
 		}
 		.TotalPanel-content {
-			font-size: 0.7em;
+			font-size: 0.8em;
 
+			padding: 15px;
 			.TotalDetails {
 				padding-top: 10px;
 				width: 100%;
 				.TotalDetailsProp {
 					.TotalDetailsProp-name {
-						font-weight: bold;
 					}
 					.TotalDetailsProp-valueUnit {
 					}

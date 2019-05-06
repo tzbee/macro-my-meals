@@ -49,3 +49,8 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+
+// Small-ish screens
+@media all and (min-width: 20em) and (max-width: 90em) {
+	font-size: 0.5em;
+}
