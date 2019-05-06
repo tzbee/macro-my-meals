@@ -4,10 +4,7 @@
 	box-sizing: border-box;
 	font-size: 1.1em;
 	box-sizing: border-box;
-	display: flex;
-	flex-flow: column;
 	height: 100%;
-	justify-content: center;
 
 	.TotalPanel-Total {
 		background-color: #eee;
@@ -16,6 +13,7 @@
 		font-weight: bold;
 		box-shadow: none;
 		box-sizing: border-box;
+		height: 100%;
 		.TotalPanel-header {
 			padding: 15px;
 			padding-bottom: 10px;
@@ -24,10 +22,13 @@
 			border-bottom: solid 1px #ececec;
 			background-color: #eee;
 			border: solid 1px #e8e2e2;
+			box-sizing: border-box;
+			height: 20%;
 		}
 		.TotalPanel-content {
 			font-size: 0.8em;
-
+			box-sizing: border-box;
+			height: 80%;
 			padding: 15px;
 			.TotalDetails {
 				padding-top: 10px;
@@ -40,5 +41,12 @@
 				}
 			}
 		}
+	}
+}
+
+// Phones
+@media (min-width: 20em) and (max-width: 90em) and (orientation: portrait) {
+	.TotalPanel {
+		font-size: 0.9em;
 	}
 }

@@ -69,9 +69,10 @@ export class SearchBar extends Component {
 					<span className="fa fa-search" />
 				</button>
 				{foldable && (
-					<a className="SearchBar-fold" onClick={handleFoldClick}>
-						Fold
-					</a>
+					<a
+						className="SearchBar-fold fa fa-angle-left"
+						onClick={handleFoldClick}
+					/>
 				)}
 			</form>
 		);

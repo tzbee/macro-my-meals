@@ -6,9 +6,15 @@ import SearchPanel from '../search-panel/SearchPanel';
 import ListPanel from '../list-panel/ListPanel';
 import TotalPanel from '../total-panel/TotalPanel';
 
-const App = ({ foldedSearch }) => {
+import { connect } from 'react-redux';
+
+const App = ({ foldedSearch, mobile }) => {
 	return (
-		<div className={`App ${foldedSearch && 'App-searchPanel--folded'}`}>
+		<div
+			className={`App ${foldedSearch &&
+				mobile &&
+				'App-searchPanel--folded'}`}
+		>
 			<div className="App-bannerPanel App-panel">
 				<div className="banner">
 					<div className="banner-title-wrapper">
@@ -34,16 +40,15 @@ App.propTypes = {
 	foldedSearch: PropTypes.bool
 };
 
-import { connect } from 'react-redux';
-
 const mapDispatchToProps = dispatch => {
 	return {
 		dispatch
 	};
 };
 
-const mapStateToProps = ({ search }) => ({
-	foldedSearch: search.folded
+const mapStateToProps = ({ search, mobile }) => ({
+	foldedSearch: search.folded,
+	mobile
 });
 
 export default connect(

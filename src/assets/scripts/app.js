@@ -17,6 +17,8 @@ import App from './components/app/App';
 
 import FoodListCache from './FoodListCache';
 
+import { setMobile } from './actions/misc-actions';
+
 const flc = new FoodListCache();
 export const foodListCache = flc;
 
@@ -29,10 +31,28 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
+const isMobileEnv = () => {
+	return (
+		window.innerWidth /
+			parseFloat(
+				getComputedStyle(document.querySelector('body'))['font-size']
+			) <
+		90
+	);
+};
+
+const updateMobileEnv = () =>
+	isMobileEnv()
+		? store.dispatch(setMobile(true))
+		: store.dispatch(setMobile(false));
+
+window.onresize = updateMobileEnv;
+
+updateMobileEnv();
+
 // Hack so that the focus on the search bar does not open the suggestion menu
 store.dispatch(closeSuggestions());
 
 flc.load().then(() => {
 	store.dispatch(loadFoodList());
 });
-

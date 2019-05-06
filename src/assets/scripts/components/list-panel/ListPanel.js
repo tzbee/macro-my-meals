@@ -16,9 +16,10 @@ const ListPanel = ({
 		<div className={`ListPanel ${className}`}>
 			<div className="ListPanel-header">
 				{searchBtnActive && (
-					<a className="ListPanel-search" onClick={handleSearchClick}>
-						Search
-					</a>
+					<button
+						className="ListPanel-search fa fa-search"
+						onClick={handleSearchClick}
+					/>
 				)}
 				Your Daily Meal Plan
 			</div>
