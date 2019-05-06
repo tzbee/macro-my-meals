@@ -26,7 +26,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<App />
 	</Provider>,
-	document.getElementById('page-content')
+	document.getElementById('root')
 );
 
 // Hack so that the focus on the search bar does not open the suggestion menu
