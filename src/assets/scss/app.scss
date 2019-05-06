@@ -63,3 +63,9 @@ ul {
 		font-size: 0.8em;
 	}
 }
+
+@media (min-width: 20em) and (max-width: 90em) and (orientation: portrait) {
+	body {
+		font-size: 1.2em;
+	}
+}

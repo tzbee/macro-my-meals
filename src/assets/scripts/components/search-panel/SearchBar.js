@@ -88,7 +88,8 @@ SearchBar.propTypes = {
 	isFocused: PropTypes.bool,
 	onFocus: PropTypes.func,
 	onFoldClick: PropTypes.func,
-	foldable: PropTypes.book
+	foldable: PropTypes.bool,
+	folded: PropTypes.bool
 };
 
 export default SearchBar;
