@@ -43,9 +43,8 @@
 
 // Small-ish screens
 
-@media (max-width: 20em) and (orientation: portrait) {
+@media (max-width: 90em) and (orientation: portrait) {
 	.App {
-		grid-template-columns: 18em auto;
 		grid-template-rows: 4em 1fr 14em;
 	}
 }
