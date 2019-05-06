@@ -38,3 +38,10 @@
 		}
 	}
 }
+
+// Small-ish screens
+@media all and (min-width: 20em) and (max-width: 90em) {
+	.banner {
+		justify-content: center;
+	}
+}
