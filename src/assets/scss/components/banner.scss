@@ -39,8 +39,8 @@
 	}
 }
 
-// Small-ish screens
-@media all and (min-width: 20em) and (max-width: 90em) {
+// Small-ish screens in portrait
+@media all and (min-width: 20em) and (max-width: 90em) and (orientation: portrait) {
 	.banner {
 		justify-content: center;
 	}

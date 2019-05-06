@@ -18,11 +18,8 @@
 	.FoodItem {
 		padding: 10px;
 		border-radius: 7px;
-		display: flex;
-		flex-flow: row;
 		width: 100%;
 		box-sizing: border-box;
-		align-items: center;
 
 		.FoodItem-prop {
 			padding: 10px;
@@ -50,7 +47,7 @@
 				align-items: center;
 				.QuantityValue {
 					width: 60px;
-					height: 30px;
+					height: 2.3em;
 					padding: 5px;
 					box-sizing: border-box;
 					font-size: 0.9em;
@@ -62,7 +59,8 @@
 				.QuantityUnit {
 					padding: 5px;
 					text-decoration: none;
-					height: 30px;
+					height: 2.3em;
+					font-size: 0.9em;
 					background-color: rgba(0, 0, 0, 0);
 				}
 			}
