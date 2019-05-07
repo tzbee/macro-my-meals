@@ -11,7 +11,10 @@ import {
 const mapDispatchToProps = dispatch => {
 	return {
 		onChange: term => dispatch(setSearchTerm(term)),
-		onSubmit: term => dispatch(search(term)),
+		onSubmit: term => {
+			dispatch(search(term));
+			dispatch(setSearchFocus(false));
+		},
 		onFocus: focus => dispatch(setSearchFocus(focus)),
 		onFoldClick: () => dispatch(setFolded(true))
 	};
