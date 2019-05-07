@@ -5,7 +5,7 @@ import {
 	updateQuantity
 } from '../../actions/food-item-list-actions';
 
-import { setSearchFocus } from '../../actions/search-actions';
+import { setSearchFocus, setFolded } from '../../actions/search-actions';
 
 const mapDispatchToProps = dispatch => {
 	return {
@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => {
 			dispatch(updateQuantity(newQuantity, foodItemID));
 		},
 		onSearchClick: () => {
+			dispatch(setFolded(false));
 			dispatch(setSearchFocus(true));
 		}
 	};
