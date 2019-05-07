@@ -1,9 +1,9 @@
 // index.scss
 
 // Small-ish screens
-@media all and (max-width: 90em) and (min-width: 20em) and (orientation: landscape) {
+@media all and (max-width: 90em) and (min-width: 30em) and (orientation: landscape) {
 	body {
-		font-size: 1em;
+		font-size: 0.9em;
 	}
 	.banner {
 		justify-content: center;
@@ -11,6 +11,6 @@
 
 	.App {
 		grid-template-columns: 18em auto;
-		grid-template-rows: 4em 1fr 14em;
+		grid-template-rows: 4em 1fr 12em;
 	}
 }

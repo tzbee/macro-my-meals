@@ -1,12 +1,12 @@
 // index.scss
 
-@media only screen and (max-width: 25em) and (orientation: portrait) {
+@media only screen and (max-width: 30em) and (orientation: portrait) {
 	body {
 		font-size: 0.9em;
 	}
 	.App {
 		grid-template-columns: 100% auto;
-		grid-template-rows: 4em 1fr 13em;
+		grid-template-rows: 4em 1fr 12em;
 	}
 
 	.SearchResults {

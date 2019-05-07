@@ -4,38 +4,69 @@ import PropTypes from 'prop-types';
 import FoodItemListContainer from '../food-item-list/FoodItemListContainer';
 import { setFolded } from '../../actions/search-actions';
 
-const ListPanel = ({
-	className = '',
-	searchBtnActive = false,
-	onSearchClick
-}) => {
-	const handleSearchClick = () => {
-		onSearchClick();
-	};
-	return (
-		<div className={`ListPanel ${className}`}>
-			<div className="ListPanel-header">
-				{searchBtnActive && (
-					<button
-						className="ListPanel-search fa fa-search"
-						onClick={handleSearchClick}
-					/>
-				)}
-				Your Daily Meal Plan
+class ListPanel extends React.Component {
+	constructor(props) {
+		super(props);
+		this.listContentRef = React.createRef();
+	}
+
+	componentDidUpdate() {
+		const { scrollValue } = this.props;
+		this._scrollListTo(scrollValue);
+	}
+
+	_scrollListTo(value) {
+		this.listContentRef.current.scrollTo(
+			value,
+			this.listContentRef.current.scrollHeight
+		);
+	}
+
+	render() {
+		const {
+			className = '',
+			searchBtnActive = false,
+			onSearchClick
+		} = this.props;
+
+		const handleSearchClick = () => {
+			onSearchClick();
+		};
+
+		const handleScroll = e => {
+			// debugger;
+		};
+
+		return (
+			<div className={`ListPanel ${className}`}>
+				<div className="ListPanel-header">
+					{searchBtnActive && (
+						<button
+							className="ListPanel-search fa fa-search"
+							onClick={handleSearchClick}
+						/>
+					)}
+					Your Daily Meal Plan
+				</div>
+				<div
+					className="ListPanel-content"
+					ref={this.listContentRef}
+					onScroll={handleScroll}
+				>
+					<FoodItemListContainer />
+				</div>
 			</div>
-			<div className="ListPanel-content">
-				<FoodItemListContainer />
-			</div>
-		</div>
-	);
-};
+		);
+	}
+}
 
 ListPanel.displayName = 'ListPanel';
 
 ListPanel.propTypes = {
 	className: PropTypes.string,
 	searchBtnActive: PropTypes.bool,
-	onSearchClick: PropTypes.func
+	onSearchClick: PropTypes.func,
+	scrollValue: PropTypes.number
 };
 
 import { connect } from 'react-redux';
