@@ -11,9 +11,9 @@ import { connect } from 'react-redux';
 const App = ({ foldedSearch, mobile }) => {
 	return (
 		<div
-			className={`App ${foldedSearch &&
-				mobile &&
-				'App-searchPanel--folded'}`}
+			className={`App ${
+				foldedSearch && mobile ? 'App-searchPanel--folded' : ''
+			}`}
 		>
 			<div className="App-bannerPanel App-panel">
 				<div className="banner">
@@ -37,7 +37,8 @@ const App = ({ foldedSearch, mobile }) => {
 };
 
 App.propTypes = {
-	foldedSearch: PropTypes.bool
+	foldedSearch: PropTypes.bool,
+	mobile: PropTypes.bool
 };
 
 const mapDispatchToProps = dispatch => {

@@ -44,7 +44,7 @@ const isMobileEnv = () => {
 
 const updateMobileEnv = () =>
 	isMobileEnv()
-		? store.dispatch(setMobile(true)) & store.dispatch(setFolded(true))
+		? store.dispatch(setMobile(true))
 		: store.dispatch(setMobile(false));
 
 window.onresize = updateMobileEnv;

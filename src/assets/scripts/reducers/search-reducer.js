@@ -1,7 +1,7 @@
 const defaultState = {
 	term: '',
 	isFocused: true,
-	folded: false
+	folded: true
 };
 
 const SearchReducer = (
