@@ -1,0 +1,12 @@
+// index.scss
+
+// Desktop screens
+@media all and (min-width: 90em) and (max-width: 120em) and (orientation: landscape) {
+	body {
+		font-size: 0.8em;
+	}
+	.App {
+		grid-template-columns: 18em auto;
+		grid-template-rows: 4em 1fr 14em;
+	}
+}

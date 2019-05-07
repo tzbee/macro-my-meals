@@ -33,31 +33,3 @@
 	}
 }
 
-// Big-ish screens
-@media all and (min-width: 90em) {
-	.App {
-		grid-template-columns: 18em auto;
-		grid-template-rows: 4em 1fr 14em;
-	}
-}
-
-// Small-ish screens
-
-@media (max-width: 90em) and (orientation: portrait) {
-	.App {
-		grid-template-rows: 4em 1fr 14em;
-	}
-}
-
-// Phones
-@media (min-width: 90em) and (orientation: portrait) {
-	.App {
-		grid-template-rows: 4em 1fr 11em;
-	}
-}
-
-@media (orientation: portrait) {
-	.App {
-		grid-template-columns: 100% auto;
-	}
-}

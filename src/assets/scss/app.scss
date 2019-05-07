@@ -1,77 +1,8 @@
 // app.scss
 
-// Color palette
-@import './components/colors';
-
-// Fonts
-@import './components/fonts.scss';
-
-// Components
-@import './components/banner';
-@import './components/page-content';
-@import './components/SearchBar';
-@import './components/suggestion-menu';
-@import './components/FoodItemList';
-@import './components/App';
-@import './components/TotalPanel';
-@import './components/SearchPanel';
-@import './components/ListPanel';
-@import './components/SearchResults';
-@import './components/Count';
-@import './components/AddBtn';
-@import './components/RemoveBtn';
-@import './components/mmm-btn';
-
-body {
-	padding: 0;
-	margin: 0;
-	color: $MATTE;
-	background-color: $LYNX_WHITE;
-	font-family: 'Noto Sans', sans-serif;
-	width: 100vw;
-	height: 100vh;
-	box-sizing: border-box;
-	overflow: hidden;
-}
-
-#root {
-	width: 100%;
-	height: 100%;
-}
-
-h1,
-h2 {
-	margin: 0;
-}
-
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-// Big-ish screens
-@media all and (min-width: 90em) {
-	body {
-		font-size: 1em;
-	}
-}
-
-// Small-ish screens
-@media all and (min-width: 20em) and (max-width: 90em) {
-	body {
-		font-size: 0.8em;
-	}
-}
-
-@media (max-width: 20em) and (orientation: portrait) {
-	body {
-		font-size: 1.2em;
-	}
-}
-
-@media (min-width: 90em) and(orientation: portrait) {
-	body {
-		font-size: 2em;
-	}
-}
+@import './components/common/index.scss';
+@import './components/mobile-screens/index.scss';
+@import './components/small-screens-low-ppi/index.scss';
+@import './components/small-screens-low-ppi-portrait/index.scss';
+@import './components/desktop-screens/index.scss';
+@import './components/desktop-screens-big/index.scss';
