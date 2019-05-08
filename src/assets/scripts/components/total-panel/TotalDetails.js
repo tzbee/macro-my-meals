@@ -3,27 +3,22 @@ import PropTypes from 'prop-types';
 
 const TotalDetails = ({ className = '', total }) => {
 	return (
-		<table className={`TotalDetails ${className}`}>
-			<tbody>
-				{Object.values(total).map(totalProp => (
-					<TotalDetailsProp
-						key={'tp-' + totalProp.id}
-						{...totalProp}
-					/>
-				))}
-			</tbody>
-		</table>
+		<div className={`TotalDetails ${className}`}>
+			{Object.values(total).map(totalProp => (
+				<TotalDetailsProp key={'tp-' + totalProp.id} {...totalProp} />
+			))}
+		</div>
 	);
 };
 
 const TotalDetailsProp = ({ className = '', name, value, unit }) => {
 	return (
-		<tr className={`TotalDetailsProp ${className}`}>
-			<td className="TotalDetailsProp-name">{name} </td>
-			<td className="TotalDetailsProp-valueUnit">
+		<div className={`TotalDetailsProp ${className}`}>
+			<div className="TotalDetailsProp-name">{name} </div>
+			<div className="TotalDetailsProp-valueUnit">
 				{value} {unit}
-			</td>
-		</tr>
+			</div>
+		</div>
 	);
 };
 

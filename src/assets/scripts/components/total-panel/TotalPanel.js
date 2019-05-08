@@ -6,11 +6,9 @@ import TotalContainer from './TotalContainer';
 const TotalPanel = ({ className = '' }) => {
 	return (
 		<div className={`TotalPanel ${className}`}>
-			<div className="TotalPanel-Total">
-				<div className="TotalPanel-header">TOTAL</div>
-				<div className="TotalPanel-content">
-					<TotalContainer />
-				</div>
+			<div className="TotalPanel-header">TOTAL</div>
+			<div className="TotalPanel-content">
+				<TotalContainer />
 			</div>
 		</div>
 	);

@@ -12,6 +12,13 @@
 	.SearchResults {
 		font-size: 1.3em;
 	}
+
+	.TotalPanel .TotalPanel-content .TotalDetails {
+		font-size: 1.1em;
+		.TotalDetailsProp .TotalDetailsProp-name {
+			flex: 1 1 75%;
+		}
+	}
 }
 
 @media only screen and (max-width: 30em) and (orientation: landscape) {
