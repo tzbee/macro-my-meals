@@ -17,10 +17,10 @@ const App = ({ foldedSearch, mobile }) => {
 		>
 			<div className="App-bannerPanel App-panel">
 				<div className="banner">
-					<div className="banner-title-wrapper">
+					<a className="banner-title-wrapper" href="/">
 						<span className="banner-logo-wrapper">LOGO</span>
 						<span className="banner-title">Nutricount</span>
-					</div>
+					</a>
 				</div>
 			</div>
 			<div className={`App-searchPanel App-panel`}>
