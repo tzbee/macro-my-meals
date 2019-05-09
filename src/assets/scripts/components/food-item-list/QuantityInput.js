@@ -83,6 +83,7 @@ const QuantityUnit = ({
 			className={`QuantityUnit ${className}`}
 			onChange={handleChange}
 			value={selectedUnit}
+			title={selectedUnit}
 		>
 			{unitOptions.data.map((unitOption, i) => (
 				<option
