@@ -1,5 +1,8 @@
 .FoodItemList {
 	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 1em;
 
 	.FoodItemList-list {
 		font-size: 0.8em;
@@ -8,6 +11,11 @@
 	.FoodItemList-empty {
 		padding: 20px;
 		font-size: 0.9em;
+		text-align: center;
+		background-color: #eee;
+		border: solid 1px #c5c5c5;
+		border-radius: 1.2em;
+		width: 90%;
 
 		.FoodItemList-goSearch {
 			color: $WATERMELON;
