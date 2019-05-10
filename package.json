@@ -4,13 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js --open",
-    "dev-server": "npm run build-dev & nodemon server.js",
-    "prod": "webpack --config webpack.prod.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack --config webpack.dev.js",
+    "dev": "npm run build-dev & nodemon server.js",
     "start": "node server.js",
     "clean": "rm -rf ./node_modules ./public && rm ./package-lock.json",
-    "build": "npm run prod",
-    "build-dev": "webpack --config webpack.dev.js"
+    "build": "npm run build-prod"
   },
   "author": "tzbee",
   "license": "ISC",
