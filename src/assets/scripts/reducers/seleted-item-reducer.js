@@ -5,6 +5,7 @@ const defaultState = {
 const selectedItemReducer = (state = defaultState, { type, foodItem }) => {
 	switch (type) {
 		case 'SET_SELECTED_ITEM':
+			debugger;
 			return {
 				item: foodItem
 			};

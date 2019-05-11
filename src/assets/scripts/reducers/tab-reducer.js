@@ -1,5 +1,5 @@
 const defaultState = {
-	tabID: null
+	tabID: 'total'
 };
 
 const tabReducer = (state = defaultState, { type, tabID }) => {

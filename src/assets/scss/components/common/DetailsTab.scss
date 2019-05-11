@@ -1,0 +1,10 @@
+// DetailsTab.scss
+
+.TotalDetailsTab {
+	.Details-total {
+		display: none;
+		&.Details-total--selected {
+			display: initial;
+		}
+	}
+}

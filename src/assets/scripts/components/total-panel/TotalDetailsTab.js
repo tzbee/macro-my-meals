@@ -5,24 +5,26 @@ import TotalDetails from './TotalDetails';
 
 const TotalDetailsTab = ({
 	className = '',
-	selectedTabID,
-	totalDetails,
-	itemDetails
+	selectedTabID = 'total',
+	totalDetails = {},
+	itemDetails = {}
 }) => {
 	return (
 		<div className={`TotalDetailsTab ${className}`}>
-			<TotalDetails
-				className={`'Details-total' ${
+			<div
+				className={`Details-total ${
 					selectedTabID === 'total' ? 'Details-total--selected' : ''
 				}`}
-				total={totalDetails}
-			/>
-			<TotalDetails
-				className={`'Details-total' ${
+			>
+				<TotalDetails total={totalDetails} />
+			</div>
+			<div
+				className={`Details-total ${
 					selectedTabID === 'item' ? 'Details-total--selected' : ''
 				}`}
-				total={itemDetails}
-			/>
+			>
+				<TotalDetails total={itemDetails} />
+			</div>
 		</div>
 	);
 };

@@ -4,9 +4,11 @@ import DetailsHeader from './DetailsHeader';
 
 import { connect } from 'react-redux';
 
+import { setTab } from '../../actions/tab-actions';
+
 const mapDispatchToProps = dispatch => {
 	return {
-		dispatch
+		onTabClick: tabID => dispatch(setTab(tabID))
 	};
 };
 

@@ -7,7 +7,8 @@ const SearchResults = ({
 	className = '',
 	results = {},
 	loading = false,
-	onAddClick
+	onAddClick,
+	onClick
 }) => {
 	return (
 		<div className="SearchResults">
@@ -30,6 +31,7 @@ const SearchResults = ({
 							key={'sr' + result.id}
 							result={result}
 							onAddClick={onAddClick}
+							onClick={onClick}
 						/>
 					))}
 				</ul>
@@ -44,15 +46,20 @@ SearchResults.propTypes = {
 	className: PropTypes.string,
 	results: PropTypes.object,
 	onAddClick: PropTypes.func,
-	loading: PropTypes.bool
+	loading: PropTypes.bool,
+	onClick: PropTypes.func
 };
 
-const SearchResult = ({ className = '', result, onAddClick }) => {
+const SearchResult = ({ className = '', result, onAddClick, onClick }) => {
 	const handleAddClick = () => {
 		onAddClick(result.id);
 	};
+
+	const handleClick = () => {
+		onClick(result.id);
+	};
 	return (
-		<li className={`SearchResult ${className}`}>
+		<li className={`SearchResult ${className}`} onClick={handleClick}>
 			<div className="SearchResult-name">{result.name}</div>
 			<div className="SearchResult-add">
 				<AddBtn onClick={handleAddClick} />
@@ -85,7 +92,8 @@ SearchResult.displayName = 'SearchResult';
 SearchResult.propTypes = {
 	className: PropTypes.string,
 	result: PropTypes.object,
-	onAddClick: PropTypes.func
+	onAddClick: PropTypes.func,
+	onClick: PropTypes.func
 };
 
 export default SearchResults;

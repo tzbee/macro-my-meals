@@ -1,16 +1,18 @@
 .SearchResults {
 	height: 100%;
-	padding: 0 30px 30px 30px;
 	box-sizing: border-box;
 
 	.SearchResults-results {
 		.SearchResult {
-			padding: 15px 0 15px 0;
+			padding: 15px 30px 15px 30px;
 			border-top: solid 1px #bbb;
 			display: flex;
 			flex-flow: row;
 			color: $LYNX_WHITE;
-
+			cursor: pointer;
+			&.SearchResult:hover {
+				background-color: #4b5261;
+			}
 			.SearchResult-name {
 				font-weight: bold;
 				font-size: 0.6em;

@@ -123,7 +123,7 @@ export default class FoodListCache {
 	}
 
 	// async
-	getFoodData() {
-		return this.foodDataCache.get();
+	getFoodData(id) {
+		return this.foodDataCache.getFoodData(id);
 	}
 }
