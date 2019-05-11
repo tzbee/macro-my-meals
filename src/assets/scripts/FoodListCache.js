@@ -75,35 +75,29 @@ export default class FoodListCache {
 
 	// do additional processing on the results like extra relevance sorting
 	_processSearchResults(results, searchTerm) {
-		searchTerm = searchTerm.trim().toLowerCase();
 		return (
 			results &&
-			results.sort(
-				({ id: r1ID, name: r1Name }, { id: r2ID, name: r2Name }) => {
-					r1Name = r1Name.trim().toLowerCase();
-					r2Name = r2Name.trim().toLowerCase();
-
-					const r1HitCount = this.foodDataCache.getHitCount(r1ID);
-					const r2HitCount = this.foodDataCache.getHitCount(r2ID);
-
-					const r1TermIndex = r1Name.indexOf(searchTerm);
-					const r2TermIndex = r2Name.indexOf(searchTerm);
-
-					const r1TermIndexRelevance =
-						r1TermIndex === -1 ? 50 : r1TermIndex;
-					const r2TermIndexRelevance =
-						r2TermIndex === -1 ? 50 : r2TermIndex;
-
-					// The highest the relevance values, the more priority the result get
-					const r1RelevanceValue =
-						r1HitCount * 50 - r1TermIndexRelevance;
-					const r2RelevanceValue =
-						r2HitCount * 50 - r2TermIndexRelevance;
-
-					return r2RelevanceValue - r1RelevanceValue;
-				}
-			)
+			results.sort((res1, res2) => {
+				return (
+					this._getRelevanceValue(res2, searchTerm) -
+					this._getRelevanceValue(res1, searchTerm)
+				);
+			})
 		);
+	}
+
+	// The highest the relevance values, the more priority the result get
+	_getRelevanceValue({ id: rID, name: rName }, searchTerm) {
+		searchTerm = searchTerm.trim().toLowerCase();
+
+		rName = rName.trim().toLowerCase();
+
+		const rHitCount = this.foodDataCache.getHitCount(rID);
+		const rTermIndex = rName.indexOf(searchTerm);
+		const rTermIndexRelevance = rTermIndex === -1 ? 50 : rTermIndex;
+		const rRelevanceValue = rHitCount * 50 - rTermIndexRelevance;
+
+		return rRelevanceValue;
 	}
 
 	search(term) {
