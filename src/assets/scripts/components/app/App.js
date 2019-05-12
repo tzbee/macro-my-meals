@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import SearchPanel from '../search-panel/SearchPanel';
 import ListPanel from '../list-panel/ListPanel';
 import TotalPanel from '../total-panel/TotalPanel';
+import ItemDetailsPanel from '../item-details-panel/ItemDetailsPanel';
 
 import { connect } from 'react-redux';
 
@@ -31,6 +32,9 @@ const App = ({ foldedSearch, mobile }) => {
 			</div>
 			<div className="App-totalPanel App-panel">
 				<TotalPanel />
+			</div>
+			<div className="App-itemDetailsPanel">
+				<ItemDetailsPanel />
 			</div>
 		</div>
 	);
