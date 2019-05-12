@@ -19,17 +19,13 @@
 	}
 
 	.banner-title-wrapper {
-		display: flex;
 		flex-flow: row;
 		align-items: center;
-		.banner-logo-wrapper {
-			display: inline-block;
-			height: 100%;
-			background-color: $WATERMELON;
-			padding: 10px;
-			font-weight: bold;
-			border-radius: 26px;
-		}
+		display: flex;
+		background-color: #ff6a5c;
+		padding: 0.3em 0.9em 0.3em 0.9em;
+		border-radius: 1em;
+		color: #ffd1cd;
 
 		.banner-title {
 			font-size: 1.6em;
